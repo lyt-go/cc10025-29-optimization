@@ -14,5 +14,77 @@
     "confidence": "标签体系样例1",
     "source": "标签体系样例1",
     "activated_at": "2026-11-19T01:42:58.811305+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T16:43:49.397118+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T16:57:06.075078+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T16:58:36.128615+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:01:33.154351+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:02:33.356605+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:03:04.851260+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:10:01.948619+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:10:20.134198+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:10:42.770991+00:00"
   }
 ]

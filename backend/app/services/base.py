@@ -14,6 +14,12 @@ class BaseModuleService:
     STATUS_ORDER: list[str] = []
     ACTION_RULES: dict[str, str] = {}
     NEGATIVE_ACTIONS: list[str] = []
+    # 动作请求携带的业务值（例如补数完工的实测用量）。路由层在调用
+    # run_action 前用 set_action_values 注入，领域服务自行决定是否消费。
+    _action_values: dict[str, Any] = {}
+
+    def set_action_values(self, values: dict[str, Any] | None) -> None:
+        self._action_values = dict(values or {})
 
     def list_entries(
         self,

@@ -79,3 +79,22 @@ npm run dev
 
 领域：数据工程
 子方向：数仓与数据湖
+
+## 批量核算底稿
+
+成本追踪支持多选资产开批：一次采样同时取冷存、补数、回迁三类作业，三个
+计费项共享同一 `sampling_point`，整批只构建一次源作业索引（逐条核算则每条
+各自扫描一次）。底稿保留开批基线、最新采样、修订版本与每笔实际采用用量。
+
+- `POST /api/cost_tracker/batches` 开批，body `{ entry_ids, label, variance_policy }`
+- `GET  /api/cost_tracker/batches` 列出底稿
+- `GET  /api/cost_tracker/batches/{id}` 重新打开底稿
+- `POST /api/cost_tracker/batches/{id}/recalculate` 重算（幂等，只补差额）
+- `POST /api/cost_tracker/batches/{id}/confirm` 确认选中成本记录
+
+补数完工用 `确认完成` 动作并提供 `values.实测用量`，作业会追加一条实测修订；
+再次确认同一用量不会新增修订。已确认资产在确认之后落库的修订自动
+`结转下一批`，确认前已采用的用量可以补记，重复重算不会二次入账。
+
+前端在成本追踪页勾选记录后点「批量核算选中」，底稿逐项给出开批/最新用量、
+金额、差额、修订次序与确认时间，并可重算或重新打开历史底稿。

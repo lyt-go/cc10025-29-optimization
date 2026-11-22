@@ -28,4 +28,22 @@ class EntryPayload(BaseModel):
 
 class ActionPayload(BaseModel):
     action: str
+    values: dict[str, Any] = Field(default_factory=dict)
     remark: str | None = None
+
+
+class BatchOpenPayload(BaseModel):
+    entry_ids: list[int] = Field(default_factory=list)
+    label: str = ""
+    variance_policy: str = "本次入账"
+    decisions: dict[str, str] = Field(default_factory=dict)
+
+
+class BatchRecalculatePayload(BaseModel):
+    confirm_entry_ids: list[int] = Field(default_factory=list)
+    decisions: dict[str, str] = Field(default_factory=dict)
+    variance_policy: str | None = None
+
+
+class BatchConfirmPayload(BaseModel):
+    entry_ids: list[int] = Field(default_factory=list)

@@ -1,6 +1,13 @@
 import { request } from './client'
 import { moduleMeta } from '@/data/modules'
-import type { ActionResult, EntryRow, OverviewResult, PageResult } from '@/data/types'
+import type {
+  ActionResult,
+  BatchActionResult,
+  CostBatch,
+  EntryRow,
+  OverviewResult,
+  PageResult,
+} from '@/data/types'
 
 export { moduleMeta }
 
@@ -29,10 +36,11 @@ export async function runAction(
   key: string,
   id: number,
   action: string,
+  values: Record<string, unknown> = {},
 ): Promise<ActionResult> {
   const response = await request(`/api/${key}/${id}/actions`, {
     method: 'POST',
-    body: JSON.stringify({ action }),
+    body: JSON.stringify({ action, values }),
   })
   return await response.json()
 }
@@ -57,5 +65,50 @@ export async function downloadEntries(
 export async function loadOverview(): Promise<OverviewResult> {
   const response = await request('/api/overview')
   if (!response.ok) throw new Error('运营概览读取失败')
+  return await response.json()
+}
+
+// ---------- 批量核算底稿 ----------
+export async function openCostBatch(
+  entryIds: number[],
+  label = '',
+  variancePolicy = '本次入账',
+): Promise<BatchActionResult> {
+  const response = await request('/api/cost_tracker/batches', {
+    method: 'POST',
+    body: JSON.stringify({ entry_ids: entryIds, label, variance_policy: variancePolicy }),
+  })
+  return await response.json()
+}
+
+export async function listCostBatches(): Promise<CostBatch[]> {
+  const response = await request('/api/cost_tracker/batches')
+  if (!response.ok) throw new Error('批量核算底稿读取失败')
+  const payload = (await response.json()) as { items: CostBatch[] }
+  return payload.items
+}
+
+export async function getCostBatch(batchId: string): Promise<CostBatch> {
+  const response = await request(`/api/cost_tracker/batches/${batchId}`)
+  if (!response.ok) throw new Error('批量核算底稿读取失败')
+  return await response.json()
+}
+
+export async function recalculateCostBatch(batchId: string): Promise<BatchActionResult> {
+  const response = await request(`/api/cost_tracker/batches/${batchId}/recalculate`, {
+    method: 'POST',
+    body: JSON.stringify({}),
+  })
+  return await response.json()
+}
+
+export async function confirmCostBatch(
+  batchId: string,
+  entryIds: number[],
+): Promise<BatchActionResult> {
+  const response = await request(`/api/cost_tracker/batches/${batchId}/confirm`, {
+    method: 'POST',
+    body: JSON.stringify({ entry_ids: entryIds }),
+  })
   return await response.json()
 }

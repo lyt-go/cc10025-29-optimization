@@ -7,5 +7,61 @@
   "period": "成本追踪样例1",
   "trend": "持平",
   "anomaly": "无",
-  "calculated_at": "2026-11-19T01:42:58.811706+00:00"
+  "sampling_point": "SP-SINGLE-20261122171042772112",
+  "accounting_basis": {
+    "storage": {
+      "job_id": 0,
+      "job_no": "",
+      "usage": "",
+      "amount": 5.0,
+      "basis": "无冷存作业，沿用兜底金额",
+      "confirmed_at": "",
+      "revision": 0
+    },
+    "compute": {
+      "job_id": 0,
+      "job_no": "",
+      "usage": "",
+      "amount": 10.0,
+      "basis": "无补数作业，沿用兜底金额",
+      "confirmed_at": "",
+      "revision": 0
+    },
+    "transfer": {
+      "job_id": 0,
+      "job_no": "",
+      "usage": "",
+      "amount": 3.0,
+      "basis": "无回迁作业，沿用兜底金额",
+      "confirmed_at": "",
+      "revision": 0
+    }
+  },
+  "applied_usage": {
+    "storage": {
+      "label": "存储成本",
+      "usage": "",
+      "amount": "5.00",
+      "basis": "无冷存作业，沿用兜底金额",
+      "confirmed_at": "",
+      "revision": 0
+    },
+    "compute": {
+      "label": "计算成本",
+      "usage": "",
+      "amount": "10.00",
+      "basis": "无补数作业，沿用兜底金额",
+      "confirmed_at": "",
+      "revision": 0
+    },
+    "transfer": {
+      "label": "传输成本",
+      "usage": "",
+      "amount": "3.00",
+      "basis": "无回迁作业，沿用兜底金额",
+      "confirmed_at": "",
+      "revision": 0
+    }
+  },
+  "calculated_at": "2026-11-22T17:10:42.772167+00:00"
 }
